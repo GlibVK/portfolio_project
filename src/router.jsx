@@ -13,4 +13,4 @@ export const router = createBrowserRouter([{
     { path: '/projects/:slug', lazy: async () => ({ Component: (await import('./pages/ProjectPage.jsx')).default }) },
     { path: '*', element: <NotFound /> },
   ],
-}]);
+}], { basename: import.meta.env.BASE_URL });

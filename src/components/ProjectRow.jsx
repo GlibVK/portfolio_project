@@ -1,3 +1,4 @@
+import { assetUrl } from '../lib/asset-url.js';
 import { ArrowRightIcon } from '@phosphor-icons/react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Reveal from './Reveal.jsx';
@@ -28,7 +29,7 @@ export default function ProjectRow({ project, index }) {
       </Link>
     </div>
     <figure className="project-preview">
-      <img src={project.preview} alt={project.previewAlt} width={project.previewWidth} height={project.previewHeight} loading="lazy" decoding="async" />
+      <img src={assetUrl(project.preview)} alt={project.previewAlt} width={project.previewWidth} height={project.previewHeight} loading="lazy" decoding="async" />
       <figcaption className="sr-only">Static concept preview. Interactive analysis is planned.</figcaption>
     </figure>
   </Reveal>;

@@ -1,3 +1,4 @@
+import { assetUrl } from '../lib/asset-url.js';
 import { profile, skills } from '../content/profile.js';
 import { projects } from '../content/projects.js';
 import ProjectRow from '../components/ProjectRow.jsx';
@@ -9,7 +10,7 @@ export default function Portfolio() {
   return <main id="main" className="portfolio" tabIndex={-1}>
     <PageMeta title={`${profile.name} — ${profile.role}`} />
     <section id="hero" className="hero scene" aria-labelledby="hero-title">
-      <img className="hero-art" src="/images/hero.webp" alt="Analyst at a desk, surrounded by dashboards, charts and SQL, bringing data together." width="768" height="462" fetchPriority="high" />
+      <img className="hero-art" src={assetUrl('/images/hero.webp')} alt="Analyst at a desk, surrounded by dashboards, charts and SQL, bringing data together." width="768" height="462" fetchPriority="high" />
       <div className="hero-copy">
         <h1 id="hero-title" tabIndex={-1}>I turn data<br />into decisions.</h1>
         <p className="hero-role">{profile.role}</p>
@@ -25,8 +26,8 @@ export default function Portfolio() {
         </div>
         <div className="mind-stage">
           <picture>
-            <source media="(max-width: 600px)" srcSet="/images/mind-mobile.webp" />
-            <img className="mind-art" src="/images/mind.webp" alt="An analyst connects raw data, patterns and insights along flowing amber chart lines." width="768" height="372" loading="lazy" decoding="async" />
+            <source media="(max-width: 600px)" srcSet={assetUrl('/images/mind-mobile.webp')} />
+            <img className="mind-art" src={assetUrl('/images/mind.webp')} alt="An analyst connects raw data, patterns and insights along flowing amber chart lines." width="768" height="372" loading="lazy" decoding="async" />
           </picture>
           <div className="skill-stack">
             <h3>Product & Financial Analytics</h3>
@@ -44,7 +45,7 @@ export default function Portfolio() {
     </section>
     <section id="contact" className="finale scene" aria-labelledby="contact-title">
       <Reveal>
-        <img className="finale-art" src="/images/finale.webp" alt="The analyst beside a whiteboard connecting hypotheses, experiments, conversion and growth." width="768" height="294" loading="lazy" decoding="async" />
+        <img className="finale-art" src={assetUrl('/images/finale.webp')} alt="The analyst beside a whiteboard connecting hypotheses, experiments, conversion and growth." width="768" height="294" loading="lazy" decoding="async" />
         <div className="finale-copy">
           <h2 id="contact-title">Let’s turn your data<br />into the next decision.</h2>
           <ContactLinks />

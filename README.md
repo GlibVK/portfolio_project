@@ -15,7 +15,7 @@ npm run build
 npm run preview
 ```
 
-Development: http://127.0.0.1:5173. Production preview: http://127.0.0.1:4173.
+Development: http://127.0.0.1:5173. Production preview: http://127.0.0.1:4173/portfolio_project/.
 
 ## Architecture
 
@@ -41,9 +41,28 @@ Skip link, semantic headings / landmarks, descriptive alt text, visible keyboard
 
 1. Replace and verify profile, contact and project content. Edit the static title / Open Graph tags in `index.html` to match.
 2. Replace `noindex, nofollow` and the blocking `robots.txt` only when publication is approved. Add the real canonical URL, absolute Open Graph image URL and sitemap after the domain is known.
-3. Configure the chosen static host to serve `index.html` for client routes such as `/projects/saas-churn-reduction`. No hosting provider is configured and nothing is deployed.
+3. Follow the GitHub Pages deployment instructions below. The build includes direct-entry project pages; publishing remains a separate step.
 4. Higher-resolution layered originals are recommended for future large-screen refinement. The only approved source is a 768 × 2048 raster; its baked dashboard typography cannot become sharp live UI without separate source assets or implementation of the future mini-apps.
 
 ## Source and licenses
 
 Typography: Anton and Roboto, self-hosted through Fontsource (SIL Open Font License). Icons: Phosphor (MIT). Source artwork supplied and approved by the owner; extracted without changing the character or art direction. Asset crop provenance: `docs/design/ASSET_PROVENANCE.md`.
+
+## GitHub Pages deployment
+
+Run `npm run deploy` to lint, test, build, and publish only `dist` to the
+`gh-pages` branch of `origin`. GitHub authentication must already work.
+In repository Settings → Pages, select **Deploy from a branch**, **gh-pages**,
+and **/(root)**, then Save. The website will be at
+https://glibvk.github.io/portfolio_project/ after GitHub finishes publishing.
+
+Source code stays on `main`; commit and push source changes separately.
+Never select `main` as the Pages publishing source for this setup.
+Run `npm run dev` for local development at http://127.0.0.1:5173/.
+Run `npm run build` then `npm run preview` to check the production build at
+http://127.0.0.1:4173/portfolio_project/.
+
+The build generates an HTML entry for every slug in the project registry so
+direct project links and refreshes work without a server rewrite. New registered
+projects are included automatically. Unknown paths use the React 404 screen.
+The portfolio still contains placeholders and intentionally uses noindex.

@@ -1,3 +1,4 @@
+import { assetUrl } from '../lib/asset-url.js';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { ArrowLeftIcon } from '@phosphor-icons/react';
 import { getProject } from '../content/projects.js';
@@ -32,7 +33,7 @@ export default function ProjectPage() {
         <span className="status-label">Concept preview</span>
       </div>
       <figure>
-        <img src={project.preview} alt={project.previewAlt} width={project.previewWidth} height={project.previewHeight} />
+        <img src={assetUrl(project.preview)} alt={project.previewAlt} width={project.previewWidth} height={project.previewHeight} />
         <figcaption>Illustrative design with demo data. This is a static preview, not a live analytics application.</figcaption>
       </figure>
     </section>
